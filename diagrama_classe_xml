@@ -1,0 +1,74 @@
+<mxGraphModel dx="1295" dy="1015" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageEnabled="1" pageScale="1" pageWidth="850" pageHeight="1100" background="#ffffff" math="0" shadow="0">
+  <root>
+    <mxCell id="0"/>
+    <mxCell id="1" parent="0"/>
+
+    <!-- Classe Medico -->
+    <mxCell id="medico_class" value="&lt;u&gt;Medico&lt;/u&gt;&lt;hr&gt;&lt;p style=&quot;margin: 0px;&quot;&gt;- id : int (PK)&lt;/p&gt;&lt;p style=&quot;margin: 0px;&quot;&gt;- nome : str&lt;/p&gt;&lt;p style=&quot;margin: 0px;&quot;&gt;- especialidade : str&lt;/p&gt;&lt;p style=&quot;margin: 0px;&quot;&gt;- crm : str&lt;/p&gt;&lt;p style=&quot;margin: 0px;&quot;&gt;- email : str&lt;/p&gt;&lt;p style=&quot;margin: 0px;&quot;&gt;- telefone : str&lt;/p&gt;&lt;hr&gt;" style="UMLClass;verticalAlign=top;html=1;align=left;spacingLeft=10;" parent="1" vertex="1">
+      <mxGeometry x="100" y="100" width="180" height="190" as="geometry"/>
+    </mxCell>
+
+    <!-- Classe Paciente -->
+    <mxCell id="paciente_class" value="&lt;u&gt;Paciente&lt;/u&gt;&lt;hr&gt;&lt;p style=&quot;margin: 0px;&quot;&gt;- id : int (PK)&lt;/p&gt;&lt;p style=&quot;margin: 0px;&quot;&gt;- nome : str&lt;/p&gt;&lt;p style=&quot;margin: 0px;&quot;&gt;- cpf : str&lt;/p&gt;&lt;p style=&quot;margin: 0px;&quot;&gt;- data_nascimento : date&lt;/p&gt;&lt;p style=&quot;margin: 0px;&quot;&gt;- email : str&lt;/p&gt;&lt;p style=&quot;margin: 0px;&quot;&gt;- telefone : str&lt;/p&gt;&lt;hr&gt;" style="UMLClass;verticalAlign=top;html=1;align=left;spacingLeft=10;" parent="1" vertex="1">
+      <mxGeometry x="100" y="350" width="180" height="190" as="geometry"/>
+    </mxCell>
+
+    <!-- Classe Consulta -->
+    <mxCell id="consulta_class" value="&lt;u&gt;Consulta&lt;/u&gt;&lt;hr&gt;&lt;p style=&quot;margin: 0px;&quot;&gt;- id : int (PK)&lt;/p&gt;&lt;p style=&quot;margin: 0px;&quot;&gt;- data_hora : datetime&lt;/p&gt;&lt;p style=&quot;margin: 0px;&quot;&gt;- id_medico : int (FK)&lt;/p&gt;&lt;p style=&quot;margin: 0px;&quot;&gt;- id_paciente : int (FK)&lt;/p&gt;&lt;p style=&quot;margin: 0px;&quot;&gt;- status : str&lt;/p&gt;&lt;p style=&quot;margin: 0px;&quot;&gt;- observacoes : str&lt;/p&gt;&lt;hr&gt;" style="UMLClass;verticalAlign=top;html=1;align=left;spacingLeft=10;" parent="1" vertex="1">
+      <mxGeometry x="400" y="220" width="200" height="200" as="geometry"/>
+    </mxCell>
+
+    <!-- Relacionamento Medico -> Consulta (Associação) -->
+    <mxCell id="medico_consulta_rel" value="" style="endArrow=none;html=1;" parent="1" source="medico_class" target="consulta_class" edge="1">
+      <mxGeometry relative="1" as="geometry">
+        <Array as="points">
+          <mxPoint x="280" y="195"/>
+          <mxPoint x="340" y="195"/>
+          <mxPoint x="340" y="320"/>
+          <mxPoint x="400" y="320"/>
+        </Array>
+        <mxPoint x="280" y="195" as="sourcePoint"/>
+        <mxPoint x="400" y="320" as="targetPoint"/>
+      </mxGeometry>
+    </mxCell>
+    <!-- Cardinalidade "1" para Medico -->
+    <mxCell id="medico_consulta_card1" value="1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];labelBackgroundColor=#ffffff;" vertex="1" connectable="0" parent="medico_consulta_rel">
+        <mxGeometry x="-0.85" y="-1" relative="1" as="geometry">
+            <mxPoint x="10" y="0" as="offset"/>
+        </mxGeometry>
+    </mxCell>
+    <!-- Cardinalidade "0..*" para Consulta -->
+    <mxCell id="medico_consulta_cardN" value="0..*" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];labelBackgroundColor=#ffffff;" vertex="1" connectable="0" parent="medico_consulta_rel">
+        <mxGeometry x="0.85" y="-1" relative="1" as="geometry">
+            <mxPoint x="-10" y="0" as="offset"/>
+        </mxGeometry>
+    </mxCell>
+
+    <!-- Relacionamento Paciente -> Consulta (Associação) -->
+    <mxCell id="paciente_consulta_rel" value="" style="endArrow=none;html=1;" parent="1" source="paciente_class" target="consulta_class" edge="1">
+      <mxGeometry relative="1" as="geometry">
+        <Array as="points">
+          <mxPoint x="280" y="445"/>
+          <mxPoint x="340" y="445"/>
+          <mxPoint x="340" y="320"/>
+          <mxPoint x="400" y="320"/>
+        </Array>
+        <mxPoint x="280" y="445" as="sourcePoint"/>
+        <mxPoint x="400" y="320" as="targetPoint"/>
+      </mxGeometry>
+    </mxCell>
+    <!-- Cardinalidade "1" para Paciente -->
+    <mxCell id="paciente_consulta_card1" value="1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];labelBackgroundColor=#ffffff;" vertex="1" connectable="0" parent="paciente_consulta_rel">
+        <mxGeometry x="-0.85" y="1" relative="1" as="geometry">
+            <mxPoint x="10" y="0" as="offset"/>
+        </mxGeometry>
+    </mxCell>
+    <!-- Cardinalidade "0..*" para Consulta -->
+    <mxCell id="paciente_consulta_cardN" value="0..*" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];labelBackgroundColor=#ffffff;" vertex="1" connectable="0" parent="paciente_consulta_rel">
+        <mxGeometry x="0.85" y="1" relative="1" as="geometry">
+            <mxPoint x="-10" y="0" as="offset"/>
+        </mxGeometry>
+    </mxCell>
+
+  </root>
+</mxGraphModel>
